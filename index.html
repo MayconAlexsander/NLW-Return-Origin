@@ -13,9 +13,75 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body onscroll="onScroll()">
+    
+    <nav id="navigation">
+        
+        <div class="wrapper">
 
-    <header>
+            <a class="logo-icon" href="#">
+                <img src="./assets/icons/logo.svg" alt="Logo">
+            </a>
+            
+            <div class="menu">
+
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Sobre</a></li>
+                </ul>
+                
+                <a class="btn-agendar-consulta" href="#">AGENDE SUA CONSULTA</a>
+    
+                <ul class="redes-sociais">
+                    <li>
+                        <a href="https://instagram.com/" target="_blank">
+                            <img src="./assets/icons/social-media/instagram.svg" alt="Link para Instagram">
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://facebook.com/" target="_blank">
+                            <img src="./assets/icons/social-media/facebook.svg" alt="Link para Facebook">
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://youtube.com/" target="_blank">
+                            <img src="./assets/icons/social-media/youtube.svg" alt="Link para YouTube">
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <button 
+                aria-expanded="false"
+                aria-label="Abrir menu"
+                class="menu-burger" 
+                onclick="abrirMenu()"
+            >
+                <div class="menu-icon">
+                    <img src="./assets/icons/burger-menu.svg" alt="Menu">
+                </div>
+            </button>
+
+            <button 
+                aria-expanded="true"
+                aria-label="Fechar menu"
+                class="fechar-menu" 
+                onclick="fecharMenu()"
+            >
+                <div class="close-icon">
+                    <img src="./assets/icons/close-menu.svg" alt="Botão fechar">
+                </div>
+            </button>
+            
+        </div>
+
+    </nav>
+
+    <header class="wrapper">
 
         <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
         <h1>Assistência médica simplificada para todos</h1>
@@ -30,20 +96,35 @@
         </button>
 
         <img 
+            class="Foto"
             src="./assets/images/Foto.png" 
-            alt="Mulher de moletom verde sorrindo com a mão no peito"
+            alt="Mulher de suéter verde sorrindo com a mão no peito"
         >
         
-        <h3>+3.500</h3>
-        <p>Pacientes atendidos</p>
+        <div class="estatisticas">
+
+            <div class="estatistica">
+                <h3>+3.500</h3>
+                <p>Pacientes atendidos</p>
+            </div>
+
+            <div class="estatistica">
+                <h3>+15</h3>
+                <p>Especialistas disponíveis</p>
+            </div>
+
+            <div class="estatistica">
+                <h3>+10</h3>
+                <p>Anos no mercado</p>
+            </div>
         
-        <h3>+15</h3>
-        <p>Especialistas disponíveis</p>
-        
-        <h3>+10</h3>
-        <p>Anos no mercado</p>
+        </div>
+
     
     </header>
+
+    <!-- JavaScript -->
+    <script src="./script.js"></script>
 
 </body>
 

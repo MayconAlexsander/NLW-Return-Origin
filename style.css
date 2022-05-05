@@ -1,8 +1,10 @@
 /* [Font] DM Sans */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
+/* ===== GLOBAL =========================*/
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -12,6 +14,15 @@
     --primary-color: hsl(170, 100%, 26%);
     --headline: hsl(210, 11%, 15%);
     --paragraph: hsl(210, 9%, 31%);
+    --brand-beige: hsl(39, 100%, 97%);
+    --brand-lightgreen: hsl(148, 23%, 89%);
+
+    --nav-height: 7.2rem;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
@@ -19,16 +30,70 @@ body {
     
     font-family: 'DM Sans', sans-serif;
     font-size: 1.6rem;
+
+    overflow: overlay;
 }
 
-header {
+ul {
+    list-style: none;
+}
+
+.wrapper {
     width: 37.5rem;
-    
-    margin: 4.1rem auto auto auto;
-    padding: 0 2rem;
+    margin-inline: auto;
+    padding-inline: 2.4rem;
 }
 
-h4 {
+/* ===== NAVIGATION =========================*/
+nav {
+    display: flex;
+
+    height: var(--nav-height);
+
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+}
+
+nav .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav.scroll {
+    width: 100vw;
+
+    background-color: var(--primary-color);
+}
+
+nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ===== HEADER =========================*/
+header {
+    margin-top: calc(4.1rem + var(--nav-height));
+}
+
+header::before {
+    content: "";
+    
+    display: block;
+    
+    position: absolute;
+    top: 0; left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: calc(108rem + var(--nav-height));
+    
+    background-color: var(--brand-lightgreen);
+}
+
+header h4 {
     margin-bottom: 1.6rem;
     
     color: var(--primary-color);
@@ -36,7 +101,7 @@ h4 {
     font-size: 1.4rem;
 }
 
-h1 {
+header h1 {
     margin-bottom: 2.4rem;
     
     color: var(--headline);
@@ -45,7 +110,7 @@ h1 {
     line-height: 130%;
 }
 
-p {
+header p {
     margin-bottom: 2.4rem;
     
     color: var(--paragraph);
@@ -55,7 +120,7 @@ p {
     line-height: 150%;
 }
 
-button {
+header button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,4 +139,135 @@ button {
     
     border: none;
     border-radius: 4rem;
+}
+
+.Foto {
+    display: block;
+
+    width: 26.4rem;
+
+    margin-inline: auto;
+
+    object-position: 0 2rem;
+}
+
+.estatisticas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6rem;
+
+    width: 32.7rem;
+    
+    padding-block: 4rem; /* margem acima e abaixo */
+    margin-inline: auto; /* margem esquerda e direita */
+    border: 1px solid var(--brand-lightgreen);
+    border-radius: 0.6rem;
+
+    background-color: var(--brand-beige);
+}
+
+.estatistica h3 {
+    margin-bottom: 0.4rem;
+
+    font-size: 4.8rem;
+    line-height: 130%;
+
+    color: var(--headline);
+}
+
+.estatistica p {
+    margin: 0;
+
+    line-height: 150%;
+
+    color: var(--primary-color);
+}
+
+/* ===== MENU EXPANDIDO =========================*/
+body.menu-expandido nav {
+    position: relative;
+}
+
+body.menu-expandido > :not(nav) {
+    display: none;
+}
+
+body.menu-expandido {
+    overflow: hidden;
+}
+
+body.menu-expandido .menu {
+    position: fixed;
+    top: 0; left: 0;
+    
+    width: 100vw;
+    height: 100vh;
+    padding-top: var(--nav-height);
+    
+    background-color: var(--primary-color);
+}
+
+.menu, .fechar-menu,
+body.menu-expandido .menu-burger {
+    visibility: hidden;
+}
+
+body.menu-expandido .menu,
+body.menu-expandido .fechar-menu {
+    visibility: visible;
+}
+
+.menu ul:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+
+    margin-top: 6rem;
+
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 3.1rem;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-agendar-consulta {
+    display: inline-block;
+    
+    margin-block: 4.8rem 8rem;
+
+    padding: 1.6rem 3.2rem;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+    text-decoration: none;
+
+    border-radius: 4rem;
+
+    color: var(--primary-color);
+    background-color: white;
+}
+
+.redes-sociais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+}
+
+body.menu-expandido .logo-icon,
+body.menu-expandido .fechar-menu {
+    position: relative;
+    z-index: 1;
+    /* display: none; */
+}
+
+/* ===== OUTROS =========================*/
+.hidden {
+    display: none;
 }
