@@ -13,25 +13,25 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body onscroll="onScroll()">
+<body>
     
     <nav id="navigation">
         
         <div class="wrapper">
 
-            <a class="logo-icon" href="#">
+            <a class="logo-icon" href="#home">
                 <img src="./assets/icons/logo.svg" alt="Logo">
             </a>
             
             <div class="menu">
 
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Serviços</a></li>
-                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#home" onclick="fecharMenu()">Início</a></li>
+                    <li><a href="#servicos" onclick="fecharMenu()">Serviços</a></li>
+                    <li><a href="#sobre" onclick="fecharMenu()">Sobre</a></li>
                 </ul>
                 
-                <a class="btn-agendar-consulta" href="#">AGENDE SUA CONSULTA</a>
+                <a class="button" onclick="fecharMenu()" href="#contatos">AGENDE SUA CONSULTA</a>
     
                 <ul class="redes-sociais">
                     <li>
@@ -81,48 +81,211 @@
 
     </nav>
 
-    <header class="wrapper">
+    <section id="home">
 
-        <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
-        <h1>Assistência médica simplificada para todos</h1>
+        <div class="wrapper">
 
-        <p>
-            Os médicos da DoctorCare vão além dos sintomas para tratar a causa raiz de sua doença e proporcionar uma cura a longo prazo.
-        </p>
+            <header>
+                <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
+                <h1>Assistência médica simplificada para todos</h1>
+            </header>
 
-        <button>
-            <img src="./assets/icons/whatsapp.svg">
-            AGENDE SUA CONSULTA
-        </button>
-
-        <img 
-            class="Foto"
-            src="./assets/images/Foto.png" 
-            alt="Mulher de suéter verde sorrindo com a mão no peito"
-        >
+            <div class="content">
+                <p>
+                    Os médicos da DoctorCare vão além dos sintomas para tratar a causa raiz de sua doença e proporcionar uma cura a longo prazo.
+                </p>
         
-        <div class="estatisticas">
-
-            <div class="estatistica">
-                <h3>+3.500</h3>
-                <p>Pacientes atendidos</p>
-            </div>
-
-            <div class="estatistica">
-                <h3>+15</h3>
-                <p>Especialistas disponíveis</p>
-            </div>
-
-            <div class="estatistica">
-                <h3>+10</h3>
-                <p>Anos no mercado</p>
-            </div>
+                <a class="button" href="#contatos">
+                    <img src="./assets/icons/whatsapp.svg">
+                    AGENDE SUA CONSULTA
+                </a>
         
+                <img 
+                    class="picture-home"
+                    src="./assets/images/picture-home.png" 
+                    alt="Mulher de suéter verde sorrindo com a mão no peito"
+                >
+            </div>
+            
+            <div class="estatisticas">
+    
+                <div class="estatistica">
+                    <h3>+3.500</h3>
+                    <p>Pacientes atendidos</p>
+                </div>
+    
+                <div class="estatistica">
+                    <h3>+15</h3>
+                    <p>Especialistas disponíveis</p>
+                </div>
+    
+                <div class="estatistica">
+                    <h3>+10</h3>
+                    <p>Anos no mercado</p>
+                </div>
+            
+            </div>
+
+        </div>
+    
+    </section>
+
+    <section id="servicos">
+
+        <div class="wrapper">
+
+            <header>
+                <h4>SERVIÇOS</h4>
+                <h2>Como podemos ajudá-lo a se sentir melhor?</h2>
+            </header>
+
+            <div class="content">
+                <div class="cards">
+    
+                    <div class="card">
+                        <img src="./assets/icons/check.svg">
+                        <h3>Problemas digestivos</h3>
+                        <p>Fugiat sint fugiat velit aliqua laborum amet consequat qui tempor fugiat dolore veniam. Excepteur culpa occaecat irure esse tempor elit duis. Consequat est incididunt quis laborum et ad. Fugiat nisi sint elit ea aliquip est eu labore cillum magna ex aute. Ut laborum dolor irure tempor incididunt in excepteur commodo ex.</p>
+                    </div>
+    
+                    <div class="card">
+                        <img src="./assets/icons/check.svg">
+                        <h3>Saúde Hormonal</h3>
+                        <p>Fugiat sint fugiat velit aliqua laborum amet consequat qui tempor fugiat dolore veniam. Excepteur culpa occaecat irure esse tempor elit duis. Consequat est incididunt quis laborum et ad. Fugiat nisi sint elit ea aliquip est eu labore cillum magna ex aute. Ut laborum dolor irure tempor incididunt in excepteur commodo ex.</p>
+                    </div>
+    
+                    <div class="card">
+                        <img src="./assets/icons/check.svg">
+                        <h3>Bem-estar mental</h3>
+                        <p>Fugiat sint fugiat velit aliqua laborum amet consequat qui tempor fugiat dolore veniam. Excepteur culpa occaecat irure esse tempor elit duis. Consequat est incididunt quis laborum et ad. Fugiat nisi sint elit ea aliquip est eu labore cillum magna ex aute. Ut laborum dolor irure tempor incididunt in excepteur commodo ex.</p>
+                    </div>
+    
+                    <div class="card">
+                        <img src="./assets/icons/check.svg">
+                        <h3>Cuidados pediátricos</h3>
+                        <p>Fugiat sint fugiat velit aliqua laborum amet consequat qui tempor fugiat dolore veniam. Excepteur culpa occaecat irure esse tempor elit duis. Consequat est incididunt quis laborum et ad. Fugiat nisi sint elit ea aliquip est eu labore cillum magna ex aute. Ut laborum dolor irure tempor incididunt in excepteur commodo ex.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="./assets/icons/check.svg">
+                        <h3>Autoimune e Inflamação</h3>
+                        <p>Fugiat sint fugiat velit aliqua laborum amet consequat qui tempor fugiat dolore veniam. Excepteur culpa occaecat irure esse tempor elit duis. Consequat est incididunt quis laborum et ad. Fugiat nisi sint elit ea aliquip est eu labore cillum magna ex aute. Ut laborum dolor irure tempor incididunt in excepteur commodo ex.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="./assets/icons/check.svg">
+                        <h3>Saúde do Coração</h3>
+                        <p>Fugiat sint fugiat velit aliqua laborum amet consequat qui tempor fugiat dolore veniam. Excepteur culpa occaecat irure esse tempor elit duis. Consequat est incididunt quis laborum et ad. Fugiat nisi sint elit ea aliquip est eu labore cillum magna ex aute. Ut laborum dolor irure tempor incididunt in excepteur commodo ex.</p>
+                    </div>
+                    
+                </div>
+            </div>
+
         </div>
 
-    
-    </header>
+    </section>
 
+    <section id="sobre">
+
+        <div class="wrapper">
+
+            <header>
+                <h4>SOBRE NÓS</h4>
+                <h2>Entenda quem somos e por que existimos</h2>
+            </header>
+
+            <div class="content">
+                <p>
+                    Reprehenderit ad est enim deserunt esse duis occaecat id et. Ut dolore culpa laboris consectetur sint ex. Aliqua minim laboris sit minim proident. Commodo ipsum elit ea occaecat Lorem. Commodo labore voluptate laboris cupidatat cillum ullamco eu ullamco magna velit. Eiusmod pariatur Lorem elit ut proident ullamco. Culpa nostrud amet veniam ex exercitation aute veniam eiusmod sunt labore non aliquip. Esse minim proident elit enim ullamco exercitation non consequat exercitation esse ea labore labore dolor.
+                </p>
+
+                <img 
+                    class="picture-sobre" 
+                    src="./assets/images/picture-about.png" 
+                    alt="Médico sorrindo segurando uma prancheta ao lado de dois pacientes"
+                >
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contatos">
+
+        <div class="wrapper">
+
+            <header>
+                <h2>Entre em contato com a gente!</h2>
+            </header>
+
+            <div class="content">
+                <ul>
+                    <li>
+                        <img src="./assets/icons/location.svg">
+                        R Amauri Souza, 346
+                    </li>
+
+                    <li>
+                        <img src="./assets/icons/mail.svg">
+                        contato@doctorcare.com
+                    </li>
+                </ul>
+
+                <a class="button" href="https://wa.me/5584988604644" target="_blank">
+                    <img src="./assets/icons/whatsapp.svg">
+                    AGENDE SUA CONSULTA
+                </a>
+
+                <img src="./assets/images/picture-contacts.png" alt="Homem sorrindo em casa sentado no sofá e usando seu smartphone">
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        
+        <div class="wrapper">
+
+            <a class="logo-icon" href="#home">
+                <img src="./assets/icons/on_scroll/logo.svg" alt="Logo">
+            </a>
+    
+            <p>
+                @2022 DoctorCare<br>
+                Todos os direitos reservados.
+            </p>
+    
+            <ul class="redes-sociais">
+                <li>
+                    <a href="https://instagram.com/" target="_blank">
+                        <img src="./assets/icons/social-media/instagram.svg" alt="Link para Instagram">
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://facebook.com/" target="_blank">
+                        <img src="./assets/icons/social-media/facebook.svg" alt="Link para Facebook">
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://youtube.com/" target="_blank">
+                        <img src="./assets/icons/social-media/youtube.svg" alt="Link para YouTube">
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </footer>
+
+    <a id="btnBackToTop" href="#home">
+        <img src="./assets/icons/arrow-up.svg">
+    </a>
+
+    <!-- [Lib] Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <!-- JavaScript -->
     <script src="./script.js"></script>
 

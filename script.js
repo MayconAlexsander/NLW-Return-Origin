@@ -1,5 +1,15 @@
+onScroll()
+window.addEventListener("scroll", onScroll)
+
 function onScroll() {
 
+    showNav()
+    showBtnBackToTop()
+
+}
+
+function showNav() {
+    
     if (scrollY > 0) {
 
         navigation.classList.add("scroll")
@@ -30,6 +40,16 @@ function onScroll() {
 
 }
 
+function showBtnBackToTop() {
+        
+    if (scrollY > 400) {
+        btnBackToTop.classList.add("show")
+    } else {
+        btnBackToTop.classList.remove("show")
+    }
+
+}
+
 function abrirMenu() {
     
     document.body.classList.add("menu-expandido")
@@ -51,3 +71,22 @@ function fecharMenu() {
     .innerHTML = `<img src="./assets/icons/logo.svg" alt="Logo">`
 
 }
+
+
+
+// [Lib] Scroll Reveal
+ScrollReveal({
+    origin: "top",
+    distance: "30px",
+    duration: 1500
+}).reveal(`
+    #home, 
+    #home img, 
+    #home .estatisticas,
+    #servicos,
+    #servicos header,
+    #servicos .card,
+    #sobre,
+    #sobre header,
+    #sobre .content
+`);

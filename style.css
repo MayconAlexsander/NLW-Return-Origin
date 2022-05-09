@@ -11,13 +11,21 @@
 :root {
     font-size: 62.5%; /* 1rem = 10px */
 
-    --primary-color: hsl(170, 100%, 26%);
+    --hue: 170;
+
+    --primary-color: hsl(var(--hue), 100%, 26%);
     --headline: hsl(210, 11%, 15%);
     --paragraph: hsl(210, 9%, 31%);
     --brand-beige: hsl(39, 100%, 97%);
-    --brand-lightgreen: hsl(148, 23%, 89%);
+    --brand-light: hsl(calc(var(--hue) - 22), 23%, 89%);
+    --bg-light: hsl(180, 14%, 97%);
+    --brand-dark: hsl(var(--hue), 100%, 14%);
 
     --nav-height: 7.2rem;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 html, body {
@@ -31,11 +39,84 @@ body {
     font-family: 'DM Sans', sans-serif;
     font-size: 1.6rem;
 
+    background-color: var(--bg-light);
+
     overflow: overlay;
+}
+
+img {
+    max-width: 100%;
+} /* Conflito com os ícones da navbar */
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem; /* espaço entre os itens */
+    
+    width: fit-content;
+
+    padding: 1.6rem 3.2rem;
+    margin-bottom: 6rem;
+    
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    
+    color: white;
+    background-color: var(--primary-color);
+    
+    border: none;
+    border-radius: 4rem;
+}
+
+.button:hover {
+    background-color: var(--brand-dark);
+
+    transition: background 200ms;
 }
 
 ul {
     list-style: none;
+}
+
+section {
+    padding-block: 10rem;
+}
+
+section header h4 {
+    margin-bottom: 1.6rem;
+    
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 0.08rem;
+    
+    color: var(--primary-color);
+}
+
+section header h2 {
+    font-size: 3rem;
+    line-height: 3.9rem;
+
+    color: var(--headline);
+}
+
+section header h1 {
+    margin-bottom: 2.4rem;
+    
+    font-size: 3.4rem;
+    line-height: 130%;
+    
+    color: var(--headline);
+}
+
+section .content p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 150%;
+
+    color: var(--paragraph);
 }
 
 .wrapper {
@@ -44,15 +125,25 @@ ul {
     padding-inline: 2.4rem;
 }
 
+.redes-sociais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+}
+
+
+
 /* ===== NAVIGATION =========================*/
 nav {
     display: flex;
 
+    width: 100vw;
     height: var(--nav-height);
 
     position: fixed;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
+
+    z-index: 20;
 }
 
 nav .wrapper {
@@ -62,8 +153,6 @@ nav .wrapper {
 }
 
 nav.scroll {
-    width: 100vw;
-
     background-color: var(--primary-color);
 }
 
@@ -73,12 +162,14 @@ nav button {
     cursor: pointer;
 }
 
-/* ===== HEADER =========================*/
-header {
-    margin-top: calc(4.1rem + var(--nav-height));
+
+
+/* ===== HOME =========================*/
+#home {
+    padding-top: calc(4.1rem + var(--nav-height));
 }
 
-header::before {
+#home::before {
     content: "";
     
     display: block;
@@ -90,27 +181,10 @@ header::before {
     width: 100%;
     height: calc(108rem + var(--nav-height));
     
-    background-color: var(--brand-lightgreen);
+    background-color: var(--brand-light);
 }
 
-header h4 {
-    margin-bottom: 1.6rem;
-    
-    color: var(--primary-color);
-    
-    font-size: 1.4rem;
-}
-
-header h1 {
-    margin-bottom: 2.4rem;
-    
-    color: var(--headline);
-    
-    font-size: 3.4rem;
-    line-height: 130%;
-}
-
-header p {
+#home p {
     margin-bottom: 2.4rem;
     
     color: var(--paragraph);
@@ -120,28 +194,11 @@ header p {
     line-height: 150%;
 }
 
-header button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.6rem; /* espaço entre os itens */
-    
-    width: 26.3rem;
-    height: 6.2rem;
-
-    margin: auto auto 6rem auto;
-    
-    font-size: 1.4rem;
-    font-weight: 700;
-    
-    color: white;
-    background-color: var(--primary-color);
-    
-    border: none;
-    border-radius: 4rem;
+#home .button {
+    margin-inline: auto;
 }
 
-.Foto {
+#home .picture-home {
     display: block;
 
     width: 26.4rem;
@@ -151,7 +208,7 @@ header button {
     object-position: 0 2rem;
 }
 
-.estatisticas {
+#home .estatisticas {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,13 +218,13 @@ header button {
     
     padding-block: 4rem; /* margem acima e abaixo */
     margin-inline: auto; /* margem esquerda e direita */
-    border: 1px solid var(--brand-lightgreen);
+    border: 1px solid var(--brand-light);
     border-radius: 0.6rem;
 
     background-color: var(--brand-beige);
 }
 
-.estatistica h3 {
+#home .estatistica h3 {
     margin-bottom: 0.4rem;
 
     font-size: 4.8rem;
@@ -176,7 +233,7 @@ header button {
     color: var(--headline);
 }
 
-.estatistica p {
+#home .estatistica p {
     margin: 0;
 
     line-height: 150%;
@@ -184,17 +241,140 @@ header button {
     color: var(--primary-color);
 }
 
-/* ===== MENU EXPANDIDO =========================*/
-body.menu-expandido nav {
-    position: relative;
+
+
+/* ===== SERVIÇOS =========================*/
+#servicos h2 {
+    margin-bottom: 6rem;
 }
 
+#servicos .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+#servicos .card {
+    padding: 2.4rem;
+
+    text-align: left;
+
+    background-color: white;
+
+    border: 1px solid var(--brand-light);
+    border-radius: 0.6rem;
+}
+
+#servicos .card h3 {
+    margin-block: 1.6rem;
+}
+
+
+
+/* ===== SOBRE =========================*/
+#sobre {
+    text-align: left;
+    
+    background-color: var(--brand-beige);
+}
+
+#sobre h2 {
+    margin-bottom: 2.4rem;
+}
+
+#sobre .content p {
+    margin-block: 2.4rem 6rem;
+}
+
+/* ===== CONTATOS =========================*/
+#contatos {
+    text-align: left;
+}
+
+#contatos header {
+    margin-bottom: 3.2rem;
+}
+
+#contatos ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    margin-bottom: 3.2rem;
+}
+
+#contatos ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* ===== RODAPÉ =========================*/
+footer {
+    padding-block: 6rem;
+
+    text-align: left;
+
+    background-color: var(--primary-color);
+}
+
+footer .logo-icon {
+    display: inline-block;
+
+    margin-bottom: 2.4rem;
+}
+
+footer .logo-icon img {
+    width: 23.6rem;
+    height: 3.1rem;
+}
+
+footer p {
+    margin-bottom: 3.2rem;
+
+    line-height: 2;
+
+    color: var(--brand-beige);
+}
+
+footer .redes-sociais {
+    justify-content: flex-start;
+}
+
+
+
+/* ===== BACK TO TOP =========================*/
+#btnBackToTop {
+    position: fixed;
+    bottom: 1rem; right: 2.5rem;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(100%);
+    transition: 200ms;
+}
+
+#btnBackToTop.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+
+/* ===== MENU EXPANDIDO =========================*/
 body.menu-expandido > :not(nav) {
-    display: none;
+    visibility: hidden;
 }
 
 body.menu-expandido {
     overflow: hidden;
+}
+
+.menu {
+    transform: translateY(100%);
 }
 
 body.menu-expandido .menu {
@@ -203,9 +383,13 @@ body.menu-expandido .menu {
     
     width: 100vw;
     height: 100vh;
+    
     padding-top: var(--nav-height);
     
     background-color: var(--primary-color);
+
+    transition: transform 200ms;
+    transform: translateY(0);
 }
 
 .menu, .fechar-menu,
@@ -235,7 +419,7 @@ body.menu-expandido .fechar-menu {
     text-decoration: none;
 }
 
-.btn-agendar-consulta {
+.menu .button {
     display: inline-block;
     
     margin-block: 4.8rem 8rem;
@@ -253,19 +437,20 @@ body.menu-expandido .fechar-menu {
     background-color: white;
 }
 
-.redes-sociais {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3.2rem;
+.menu .button:hover {
+    color: white;
+    background-color: var(--primary-color);
+
+    filter: brightness(1.3);
 }
 
 body.menu-expandido .logo-icon,
 body.menu-expandido .fechar-menu {
     position: relative;
-    z-index: 1;
-    /* display: none; */
+    z-index: 10;
 }
+
+
 
 /* ===== OUTROS =========================*/
 .hidden {
