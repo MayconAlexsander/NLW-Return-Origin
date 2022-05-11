@@ -1,92 +1,87 @@
+window.addEventListener('scroll', onScroll)
+
 onScroll()
-window.addEventListener("scroll", onScroll)
 
 function onScroll() {
 
-    showNav()
-    showBtnBackToTop()
+  showNavOnScroll()
+  showBackToTopButtonOnScroll()
+
+  activateMenuAtCurrentSection(home)
+  activateMenuAtCurrentSection(services)
+  activateMenuAtCurrentSection(about)
+  activateMenuAtCurrentSection(contact)
+  
+}
+
+function activateMenuAtCurrentSection(section) {
+  
+  const target_line = scrollY + (innerHeight / 2)
+
+  // Verificar se a seção passou da linha
+  const section_top = section.offsetTop
+  const section_height = section.offsetHeight
+  const section_top_reach_or_passed_target_line = target_line >= section_top
+
+  // Verificar se a base está abaixo da linha
+  const section_ends_at = section_top + section_height
+  const section_end_passed_target_line = section_ends_at <= target_line
+
+  // Limites da seção
+  const section_boundaries = section_top_reach_or_passed_target_line && !section_end_passed_target_line
+
+  const section_id = section.getAttribute("id")
+  const menu_element = document.querySelector(`.menu a[href*=${section_id}]`)
+
+  menu_element.classList.remove("active")
+
+  if (section_boundaries) {
+    menu_element.classList.add("active")
+  }
 
 }
 
-function showNav() {
-    
-    if (scrollY > 0) {
+function showNavOnScroll() {
 
-        navigation.classList.add("scroll")
-
-        document.querySelector(".logo-icon img")
-        .classList.add("hidden")
-        document.querySelector(".logo-icon")
-        .innerHTML = `<img src="./assets/icons/on_scroll/logo.svg" alt="Logo">`
-        
-        document.querySelector(".menu-icon img")
-        .classList.add("hidden")
-        document.querySelector(".menu-icon")
-        .innerHTML = `<img src="./assets/icons/on_scroll/burger-menu.svg" alt="Menu">`
-
-    } else {
-        navigation.classList.remove("scroll")
-
-        document.querySelector(".logo-icon img")
-        .classList.remove("hidden")
-        document.querySelector(".logo-icon")
-        .innerHTML = `<img src="./assets/icons/logo.svg" alt="Logo">`
-        
-        document.querySelector(".menu-icon img")
-        .classList.remove("hidden")
-        document.querySelector(".menu-icon")
-        .innerHTML = `<img src="./assets/icons/burger-menu.svg" alt="Menu">`
-    }
+  if (scrollY > 0) {
+    navigation.classList.add('scroll')
+  } else {
+    navigation.classList.remove('scroll')
+  }
 
 }
 
-function showBtnBackToTop() {
-        
-    if (scrollY > 400) {
-        btnBackToTop.classList.add("show")
-    } else {
-        btnBackToTop.classList.remove("show")
-    }
+function showBackToTopButtonOnScroll() {
+
+  if (scrollY > 550) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
 
 }
 
-function abrirMenu() {
-    
-    document.body.classList.add("menu-expandido")
-
-    document.querySelector(".logo-icon img")
-    .classList.add("hidden")
-    document.querySelector(".logo-icon")
-    .innerHTML = `<img src="./assets/icons/on_scroll/logo.svg" alt="Logo">`
-        
+function openMenu() {
+  document.body.classList.add('menu-expanded')
 }
 
-function fecharMenu() {
-
-    document.body.classList.remove("menu-expandido")
-
-    document.querySelector(".logo-icon img")
-    .classList.add("hidden")
-    document.querySelector(".logo-icon")
-    .innerHTML = `<img src="./assets/icons/logo.svg" alt="Logo">`
-
+function closeMenu() {
+  document.body.classList.remove('menu-expanded')
 }
 
-
-
-// [Lib] Scroll Reveal
+// [Lib] ScrollReaveal
 ScrollReveal({
-    origin: "top",
-    distance: "30px",
-    duration: 1500
+  origin: 'top',
+  distance: '30px',
+  duration: 700
 }).reveal(`
-    #home, 
-    #home img, 
-    #home .estatisticas,
-    #servicos,
-    #servicos header,
-    #servicos .card,
-    #sobre,
-    #sobre header,
-    #sobre .content
-`);
+  #home, 
+  #home img, 
+  #home .stats, 
+  #services,
+  #services header,
+  #services .card
+  #about, 
+  #about header, 
+  #about .content
+`)
